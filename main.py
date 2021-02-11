@@ -13,7 +13,7 @@ import time
 import sys, os
 import logging
 import telebot
-from bot import Bot
+
 
 app = Flask(__name__)
 cors = CORS(app, resource={r"/*":{"origins": "*"}})
