@@ -18,7 +18,7 @@ from telebot import TeleBot
 telegramApi = os.environ.get('API_TELEGRAM')
 telegramChatNr = os.environ.get('CHATID_TELEGRAM')
 
-bot = TeleBot(telegramApi)
+TelegramBot = TeleBot(telegramApi)
 class Bot:
 
     def __init__(self,requestClient, coin, minimalcoinbuy , minimalprofit, leverage, minimalMove):
@@ -131,7 +131,7 @@ class Bot:
         else:
             print("Strategy init successfully")
 
-            bot.send_message(telegramChatNr, 'Strategy init successfully')
+            TelegramBot.send_message(telegramChatNr, 'Strategy init successfully')
 
 
     # This function provides utility functions to work with Strings
