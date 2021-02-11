@@ -12,6 +12,7 @@ import math
 import time
 import sys, os
 import logging
+import telebot
 from bot import Bot
 
 app = Flask(__name__)
@@ -24,6 +25,8 @@ minimalQtd = os.environ.get('MINIMAL_COIN_BUY')
 minimalProfit = os.environ.get('MINIMAL_PROFIT_USD')
 leverage = os.environ.get('COIN_LEVERAGE')
 minimalMove = os.environ.get('COIN_MIN_MOVE')
+telegramApi = os.environ.get('API_TELEGRAM')
+telegramChatNr = os.environ.get('CHATID_TELEGRAM')
 
 # --------------------------- Tesnet API Keys -------------------------------------------
 
@@ -48,6 +51,8 @@ else:
 # minimalQtd = 0.001
 # minimalProfit = 0.5
 # leverage = 100
+
+telebot = telebot.TeleBot(telegramApi)
 
 backtest = Bot(request_client, coin, float(minimalQtd), float(minimalProfit), float(leverage), float(minimalMove))
 

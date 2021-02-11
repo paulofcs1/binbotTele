@@ -12,6 +12,7 @@ import  math
 import time
 import sys, os
 
+from main import telebot
 
 
 class Bot:
@@ -124,6 +125,7 @@ class Bot:
             print("Error: Strategy initialization")
         else:
             print("Strategy init successfully")
+            telebot.send_message(-419163463, 'Strategy init successfully')
 
     # This function provides utility functions to work with Strings
     # 1. reverse(s): returns the reverse of the input string
