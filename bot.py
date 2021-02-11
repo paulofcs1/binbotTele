@@ -128,6 +128,7 @@ class Bot:
         except ValueError:
             print(ValueError)
             print("Error: Strategy initialization")
+            TelegramBot.send_message(telegramChatNr, 'Error: Strategy initialization')
         else:
             print("Strategy init successfully")
 
@@ -317,6 +318,7 @@ class Bot:
         # stprice = Decimal(stprice.quantize(Decimal(str(self.minimalMove)), rounding=ROUND_HALF_UP))
 
         print("INFO: Profit:", quantity, stprice)
+        TelegramBot.send_message(telegramChatNr, 'INFO: Profit: ' + quantity +', '+stprice)
         self.set_sell_order_profit(quantity, stprice)
 
         # ---------- Set take loss -------------
@@ -326,6 +328,7 @@ class Bot:
         # stprice = Decimal(stprice.quantize(Decimal(str(self.minimalMove)), rounding=ROUND_HALF_UP))
 
         print("INFO: Loss:", quantity, stprice)
+        TelegramBot.send_message(telegramChatNr, 'INFO: Loss: ' + quantity + ', ' + stprice)
         self.set_sell_order_take_loss(quantity, stprice)
 
         # This function provides utility functions to work with Strings
@@ -339,6 +342,7 @@ class Bot:
         # stprice = Decimal(stprice.quantize(Decimal(str(self.minimalMove)), rounding=ROUND_HALF_UP))
 
         print("INFO: Profit:", quantity, stprice)
+        TelegramBot.send_message(telegramChatNr, 'INFO: Profit: ' + quantity + ', ' + stprice)
         self.set_buy_order_profit(quantity, stprice)
 
         # ---------- Set take loss -------------
@@ -348,6 +352,7 @@ class Bot:
         # stprice = Decimal(stprice.quantize(Decimal(str(self.minimalMove)), rounding=ROUND_HALF_UP))
 
         print("INFO: Loss:", quantity, stprice)
+        TelegramBot.send_message(telegramChatNr, 'INFO: Loss: ' + quantity + ', ' + stprice)
         self.set_buy_order_take_loss(quantity, stprice)
 
     # This function provides utility functions to work with Strings
@@ -388,6 +393,7 @@ class Bot:
         except ValueError:
             print(ValueError)
             print("ERROR: Posting new order")
+            TelegramBot.send_message('Error: Posting new order')
             return False
         else:
             return True
