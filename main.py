@@ -1,3 +1,4 @@
+
 from binance_f import RequestClient
 from binance_f.constant.test import *
 from binance_f.base.printobject import *
@@ -26,6 +27,16 @@ minimalQtd = os.environ.get('MINIMAL_COIN_BUY')
 minimalProfit = os.environ.get('MINIMAL_PROFIT_USD')
 leverage = os.environ.get('COIN_LEVERAGE')
 minimalMove = os.environ.get('COIN_MIN_MOVE')
+
+#key = 'fbb789242c49946a03375acbbf8ad51181e90b090093d0e3a6e3c59ba074a728'
+#secret = '2e0411c05ff6a6f1c8760fcdd1b08216a8012c25c3e8860480898488e15692b1'
+#coin = os.environ.get('COIN')
+#minimalQtd = 0.001
+#minimalProfit = 1.0
+#leverage = 100
+#minimalMove = 0.001
+
+
 
 
 # --------------------------- Tesnet API Keys -------------------------------------------
@@ -73,6 +84,8 @@ backtest = Bot(request_client, coin, float(minimalQtd), float(minimalProfit), fl
 # 2. print(s): prints the string representation of the input object
 def record_loop():
     global request_client
+
+
 
     backtest.init_strategy()
 

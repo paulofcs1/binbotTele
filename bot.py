@@ -1,3 +1,4 @@
+import telebot
 from binance_f import RequestClient
 from binance_f.constant.test import *
 from binance_f.base.printobject import *
@@ -11,15 +12,15 @@ from multiprocessing import Process, Value
 import  math
 import time
 import sys, os
-import telebot
+
+from telebot import TeleBot
 
 telegramApi = os.environ.get('API_TELEGRAM')
 telegramChatNr = os.environ.get('CHATID_TELEGRAM')
 
-
-
+bot = TeleBot(telegramApi)
 class Bot:
-    telebot = telebot.TeleBot(telegramApi)
+
     def __init__(self,requestClient, coin, minimalcoinbuy , minimalprofit, leverage, minimalMove):
 
         self.nmbOpenOrders = 0
@@ -32,7 +33,6 @@ class Bot:
         self.minimalBuy = 0
         self.leverage = leverage
         self.sellIncrement = 0
-
         self.buyPrice = 0
         self.buyStatus = 0
         self.tradeState = 0
@@ -53,6 +53,8 @@ class Bot:
         self.positionSize = 0
         self.entryPrice = 0
         self.markPrice = 0
+
+
 
     def get_open_positions(self, symbol):
         try:
@@ -128,7 +130,9 @@ class Bot:
             print("Error: Strategy initialization")
         else:
             print("Strategy init successfully")
-            telebot.send_message(-419163463, 'Strategy init successfully')
+
+            bot.send_message(telegramChatNr, 'Strategy init successfully')
+
 
     # This function provides utility functions to work with Strings
     # 1. reverse(s): returns the reverse of the input string

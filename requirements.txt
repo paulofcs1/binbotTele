@@ -17,3 +17,4 @@ websocket-client==0.57.0
 Werkzeug==1.0.1
 pyTelegramBotAPI==3.7.6
 git+https://github.com/Binance-docs/Binance_Futures_python.git
+setuptools~=53.0.0
