@@ -318,7 +318,7 @@ class Bot:
         # stprice = Decimal(stprice.quantize(Decimal(str(self.minimalMove)), rounding=ROUND_HALF_UP))
 
         print("INFO: Profit:", quantity, stprice)
-        TelegramBot.send_message(telegramChatNr, 'INFO: Profit: ' + quantity +', '+stprice)
+        TelegramBot.send_message(telegramChatNr, 'INFO: Profit: ' + str(quantity) +', '+str(stprice))
         self.set_sell_order_profit(quantity, stprice)
 
         # ---------- Set take loss -------------
@@ -328,7 +328,7 @@ class Bot:
         # stprice = Decimal(stprice.quantize(Decimal(str(self.minimalMove)), rounding=ROUND_HALF_UP))
 
         print("INFO: Loss:", quantity, stprice)
-        TelegramBot.send_message(telegramChatNr, 'INFO: Loss: ' + quantity + ', ' + stprice)
+        TelegramBot.send_message(telegramChatNr, 'INFO: Loss: ' + str(quantity) + ', ' + str(stprice))
         self.set_sell_order_take_loss(quantity, stprice)
 
         # This function provides utility functions to work with Strings
@@ -342,7 +342,7 @@ class Bot:
         # stprice = Decimal(stprice.quantize(Decimal(str(self.minimalMove)), rounding=ROUND_HALF_UP))
 
         print("INFO: Profit:", quantity, stprice)
-        TelegramBot.send_message(telegramChatNr, 'INFO: Profit: ' + quantity + ', ' + stprice)
+        TelegramBot.send_message(telegramChatNr, 'INFO: Profit: ' + str(quantity) + ', ' + str(stprice))
         self.set_buy_order_profit(quantity, stprice)
 
         # ---------- Set take loss -------------
@@ -352,7 +352,7 @@ class Bot:
         # stprice = Decimal(stprice.quantize(Decimal(str(self.minimalMove)), rounding=ROUND_HALF_UP))
 
         print("INFO: Loss:", quantity, stprice)
-        TelegramBot.send_message(telegramChatNr, 'INFO: Loss: ' + quantity + ', ' + stprice)
+        TelegramBot.send_message(telegramChatNr, 'INFO: Loss: ' + str(quantity) + ', ' + str(stprice))
         self.set_buy_order_take_loss(quantity, stprice)
 
     # This function provides utility functions to work with Strings
