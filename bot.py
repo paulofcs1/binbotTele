@@ -11,12 +11,15 @@ from multiprocessing import Process, Value
 import  math
 import time
 import sys, os
+import telebot
 
-from main import telebot
+telegramApi = os.environ.get('API_TELEGRAM')
+telegramChatNr = os.environ.get('CHATID_TELEGRAM')
+
 
 
 class Bot:
-
+    telebot = telebot.TeleBot(telegramApi)
     def __init__(self,requestClient, coin, minimalcoinbuy , minimalprofit, leverage, minimalMove):
 
         self.nmbOpenOrders = 0
